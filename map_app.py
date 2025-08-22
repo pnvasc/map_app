@@ -4,10 +4,14 @@ from streamlit_folium import st_folium
 import pandas as pd
 
 # Set page config
-st.set_page_config(page_title="Interactive Map App", layout="wide")
+st.set_page_config(
+    page_title="Interactive Map of Uppsala art", 
+    layout="wide",
+    initial_sidebar_state="auto"
+)
 
 # Title
-st.title("Interactive Map with Points of Interest")
+st.title("Interactive Map of Uppsala art")
 
 locations = [
     {
@@ -72,12 +76,16 @@ locations = [
 df = pd.DataFrame(locations)
 
 # Sidebar for filtering
-st.sidebar.header("Filter Options")
+st.sidebar.header("🎯 Filter Options")
 selected_categories = st.sidebar.multiselect(
     "Select Categories",
     options=df["category"].unique(),
     default=df["category"].unique()
 )
+
+# Add mobile-friendly layout option
+st.sidebar.markdown("---")
+st.sidebar.header("📱 Display Options")
 
 # Filter data based on selection
 filtered_df = df[df["category"].isin(selected_categories)]
@@ -123,20 +131,31 @@ for idx, row in filtered_df.iterrows():
     ).add_to(m)
 
 # Display the map
-col1, col2 = st.columns([3, 1])
-
-with col1:
-    # Render the map
-    map_data = st_folium(m, width=700, height=500, returned_objects=["last_object_clicked"])
-
-with col2:
-    # Display information about clicked marker
-    st.subheader("Point Information")
+# Use responsive layout that stacks on mobile
+if st.sidebar.checkbox("Show point information sidebar", value=False):
+    col1, col2 = st.columns([3, 1])
     
+    with col1:
+        # Render the map with responsive sizing
+        map_data = st_folium(m, width=None, height=500, returned_objects=["last_object_clicked"])
+    
+    with col2:
+        # Display information about clicked marker
+        st.subheader("Point Information")
+        
+        if map_data['last_object_clicked'] and 'popup' in map_data['last_object_clicked']:
+            st.info("Click information appears here after clicking a marker")
+        else:
+            st.info("Click on a marker to see details")
+else:
+    # Full width map for mobile-friendly experience
+    map_data = st_folium(m, width=None, height=500, returned_objects=["last_object_clicked"])
+    
+    # Point information below map for mobile
     if map_data['last_object_clicked'] and 'popup' in map_data['last_object_clicked']:
-        st.info("Click information appears here after clicking a marker")
+        st.info("✅ Marker clicked - see popup for details")
     else:
-        st.info("Click on a marker to see details")
+        st.info("📍 Click on a marker to see details")
 
 # Display data table below the map
 st.subheader("All Locations")
