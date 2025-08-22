@@ -90,7 +90,7 @@ center_lon = filtered_df["lon"].mean()
 # Create a folium map
 m = folium.Map(
     location=[center_lat, center_lon],
-    zoom_start=2,
+    zoom_start=15,
     tiles="OpenStreetMap"
 )
 
