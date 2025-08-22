@@ -9,47 +9,62 @@ st.set_page_config(page_title="Interactive Map App", layout="wide")
 # Title
 st.title("Interactive Map with Points of Interest")
 
-# Sample data - you can replace this with your own data
 locations = [
     {
-        "name": "Eiffel Tower",
-        "lat": 48.8584,
-        "lon": 2.2945,
-        "description": "Iconic iron lattice tower in Paris, France",
-        "category": "Landmark",
-        "year_built": 1889
+        "name": "Point 1",
+        "lat": 59.85811918766938,
+        "lon": 17.630661164758212,
+        "description": "Location point 1",
+        "category": "Point",
+        "year_built": 2024
     },
     {
-        "name": "Statue of Liberty",
-        "lat": 40.6892,
-        "lon": -74.0445,
-        "description": "Colossal neoclassical sculpture on Liberty Island",
-        "category": "Monument",
-        "year_built": 1886
+        "name": "Point 2",
+        "lat": 59.857276979539556,
+        "lon": 17.63114768262532,
+        "description": "Location point 2",
+        "category": "Point",
+        "year_built": 2024
     },
     {
-        "name": "Big Ben",
-        "lat": 51.5007,
-        "lon": -0.1246,
-        "description": "Famous clock tower in London, UK",
-        "category": "Landmark",
-        "year_built": 1859
+        "name": "Point 3",
+        "lat": 59.85817704850423,
+        "lon": 17.63354186274294,
+        "description": "Location point 3",
+        "category": "Point",
+        "year_built": 2024
     },
     {
-        "name": "Sydney Opera House",
-        "lat": -33.8568,
-        "lon": 151.2153,
-        "description": "Multi-venue performing arts centre in Sydney",
-        "category": "Cultural Center",
-        "year_built": 1973
+        "name": "Point 4",
+        "lat": 59.856968378847384,
+        "lon": 17.628932746107186,
+        "description": "Location point 4",
+        "category": "Point",
+        "year_built": 2024
     },
     {
-        "name": "Colosseum",
-        "lat": 41.8902,
-        "lon": 12.4922,
-        "description": "Ancient amphitheatre in Rome, Italy",
-        "category": "Historical Site",
-        "year_built": 80
+        "name": "Point 5",
+        "lat": 59.855547492942534,
+        "lon": 17.63127571373036,
+        "description": "Location point 5",
+        "category": "Point",
+        "year_built": 2024
+    },
+    {
+        "name": "Point 6",
+        "lat": 59.85626115815376,
+        "lon": 17.633567468946474,
+        "description": "Location point 6",
+        "category": "Point",
+        "year_built": 2024
+    },
+    {
+        "name": "Point 7",
+        "lat": 59.85845992229671,
+        "lon": 17.638855150514736,
+        "description": "Location point 7",
+        "category": "Point",
+        "year_built": 2024
     }
 ]
 
