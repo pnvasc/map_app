@@ -128,15 +128,15 @@ st.subheader("All Locations")
 st.dataframe(filtered_df[['name', 'category', 'year_built', 'description']], use_container_width=True)
 
 # Statistics
-st.subheader("Statistics")
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric("Total Locations", len(filtered_df))
-with col2:
-    st.metric("Categories", len(filtered_df["category"].unique()))
-with col3:
-    oldest = filtered_df.loc[filtered_df["year_built"].idxmin()]
-    st.metric("Oldest Site", f"{oldest['name']} ({oldest['year_built']})")
+# st.subheader("Statistics")
+# col1, col2, col3 = st.columns(3)
+# with col1:
+#     st.metric("Total Locations", len(filtered_df))
+# with col2:
+#     st.metric("Categories", len(filtered_df["category"].unique()))
+# with col3:
+#     oldest = filtered_df.loc[filtered_df["year_built"].idxmin()]
+#     st.metric("Oldest Site", f"{oldest['name']} ({oldest['year_built']})")
 
 # Instructions
 with st.expander("How to use this app"):
@@ -155,4 +155,3 @@ with st.expander("How to use this app"):
 
 # Footer
 st.markdown("---")
-st.markdown("*Note: This is a demo app with sample data. You can replace the locations with your own data.*")
